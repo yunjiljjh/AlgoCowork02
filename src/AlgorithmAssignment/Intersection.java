@@ -1,7 +1,6 @@
 package AlgorithmAssignment;
 
 import java.util.Vector;
-import java.awt.Point;
 
 public class Intersection {
 	
@@ -26,7 +25,7 @@ public class Intersection {
 		v.remove(i);
 	}
 	
-	public void clear(){ //clear out the vecter (erase all)
+	public void clear(){ //clear out the vector (erase all)
 		v.clear();
 	}
 	
