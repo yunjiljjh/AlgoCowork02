@@ -7,8 +7,7 @@ import java.io.IOException;
 public class InputReader {
 	private FileReader fr;
 	private BufferedReader br;
-	
-//	public double lines[][][][][] = null; //y=ax+b (c<=x<=d)에서 lines[numOfLine][a][b][c][d]
+
 	public int numOfTestcase;
 	public int numOfBuildings;
 	
@@ -42,8 +41,8 @@ public class InputReader {
 				//one building / loop
 				for(int k = 0 ; k <numOfBuildings ; k++){
 					String ss = null;
-					s = br.readLine();
-					String[] aa = s.split(" ");
+					ss = br.readLine();
+					String[] aa = ss.split(" ");
 					//aa배열에서 받은 left, top, right 좌표를 사용할 배열에 저장
 					
 					if (aa.length > 6){throw new IOException();}

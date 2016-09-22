@@ -22,4 +22,16 @@ public class lineSegment {
 	{
 		return ((y1-y2)/(x1-x2))*(X-x1) + y1; // line equation
 	}
+	
+	public boolean CheckRange(double x){
+		if(x1 <= x2) {
+			if (x>=x1 && x<=x2) {return true;}
+			else {return false;}
+		}
+		else{
+			if (x>=x2 && x<=x1) {return true;}
+			else {return false;}
+		}
+	}
+	
 }
