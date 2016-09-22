@@ -28,8 +28,7 @@ public class InputReader {
 			s = br.readLine();
 			String[] a = s.split(" ");
 			numOfTestcase = Integer.parseInt(a[0]);
-			System.out.println(numOfTestcase);
-			
+
 			for(int i =0 ; i <numOfTestcase ; i++){
 				numOfBuildings  = Integer.parseInt(br.readLine());
 				for(int k = 0 ; k <numOfBuildings ; k++){
@@ -38,9 +37,7 @@ public class InputReader {
 					String[] aa = s.split(" ");
 					//aa배열에서 받은 left, top, right 좌표를 사용할 배열에 저장
 					for(int j = 0;j <aa.length;j++){
-					System.out.print(aa[j] + ' ');
 					}
-					System.out.println();
 				}
 			}
 
