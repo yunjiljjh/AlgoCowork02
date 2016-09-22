@@ -2,14 +2,26 @@ package AlgorithmAssignment;
 
 import java.util.Vector;
 
+//intersection with y=0 should be included in Intersection
+
 public class Intersection {
 	
-	Vector<DoublePoint> v =null;
+	public Vector<DoublePoint> v =null;
 	
 	public Intersection(){
 		 v = new Vector<DoublePoint>();
 	}
 
+//rim
+	public Intersection(lineSegment[] segments){
+		 v = new Vector<DoublePoint>();
+		 //filling v
+		 //from the first segment
+		 //search possible crossing segment
+	}
+	
+	
+	
 	public void add(double x, double y){
 		DoublePoint p = new DoublePoint(x,y);
 		v.add(p);
