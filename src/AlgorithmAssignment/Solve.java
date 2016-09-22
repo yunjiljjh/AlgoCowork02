@@ -13,7 +13,7 @@ public class Solve {
 	private lineSegment segments[]; // all segments of a test case
 	public String result = "";
 	
-	Solve(int numOfTestCase, lineSegment[][] segsOfTestCases){
+	Solve(int numOfTestCase, lineSegment[][] segsOfTestCases, DoublePoint[] pointsOnAxis){
 		//for a test case
 		for (int i=0; i < numOfTestCase; i++){
 			segments = segsOfTestCases[i];
@@ -24,7 +24,7 @@ public class Solve {
 			//intersection with y=0 should be included in Intersection
 			Intersection I = new Intersection(segments);
 //			Vector<DoublePoint> v = I.vReturn();
-			Checker chk = Checker(I.vRet());
+			Checker chk = Checker(I.vRet(), pointsOnAxis);
 			
 			result = result + chk.v.toString;
 			

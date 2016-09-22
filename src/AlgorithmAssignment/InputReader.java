@@ -13,8 +13,9 @@ public class InputReader {
 	public int numOfBuildings;
 	
 //rim <- this is flag to find my temporal modification	
-	public lineSegment segments[]; //segments of a test case
-	public lineSegment segsOfTestCases[][]; // store segments of i'th test case in index i
+	private lineSegment segments[]; //segments of a test case
+	public lineSegment segsOfTestCases[][]; // stores segments of i'th test case in index i
+	public DoublePoint pointsOnAxis[]; //stores points on y=0
 	
 	public InputReader(String path){
 		read(path);
@@ -38,6 +39,7 @@ public class InputReader {
 				numOfBuildings  = Integer.parseInt(br.readLine());
 			//rim
 				segments = new lineSegment[2 * numOfBuildings];
+				pointsOnAxis = new DoublePoint[2 * numOfBuildings];
 				
 				//one building / loop
 				for(int k = 0 ; k <numOfBuildings ; k++){
@@ -53,6 +55,8 @@ public class InputReader {
 					}
 					segments[2*k] = new lineSegment(daa[0], daa[1], daa[2], daa[3]); //left slope
 					segments[2*k+1] = new lineSegment(daa[2], daa[3], daa[4], daa[5]); //right slope
+					pointsOnAxis[2*k] = new DoublePoint(daa[0], daa[1]);
+					pointsOnAxis[2*k] = new DoublePoint(daa[4], daa[5]);
 
 				} //building loop ends - segments[2*k] is filled
 				

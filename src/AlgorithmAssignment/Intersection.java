@@ -1,5 +1,6 @@
 package AlgorithmAssignment;
 
+import java.lang.reflect.Array;
 import java.util.Vector;
 
 //intersection with y=0 should be included in Intersection
@@ -7,6 +8,7 @@ import java.util.Vector;
 public class Intersection {
 	
 	public Vector<DoublePoint> v =null;
+	public lineSegment segments[];
 	
 	public Intersection(){
 		 v = new Vector<DoublePoint>();
@@ -16,8 +18,25 @@ public class Intersection {
 	public Intersection(lineSegment[] segments){
 		 v = new Vector<DoublePoint>();
 		 //filling v
+		 lineSegment currentLine;
+
 		 //from the first segment
-		 //search possible crossing segment
+		 int length = Array.getLength(segments);
+		 for (int i = 0; i < length; i++)
+		 {
+			 currentLine = segments[i];
+			 //search possible crossing segment
+			 for(int j = i+1; j < length; j++)
+			 {
+				 if (currentLine.x2 < segments[j].x1)
+				 {
+					 break;
+				 }
+				 //here segments[j] have possibility to cross..				 
+				 //find intersection
+//start here rim
+			 }
+		 }
 	}
 	
 	
