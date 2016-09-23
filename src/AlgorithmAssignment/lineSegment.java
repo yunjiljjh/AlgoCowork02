@@ -51,6 +51,13 @@ public class lineSegment implements Comparable<lineSegment> {
 	}
 	
 	public double getIntersectingX (lineSegment other){
+		if(this.getGradient() == other.getGradient())
+		{//parallel or overlapping, and divide by zero handling
+			//if parallel, no intersection
+			//if one slope of the two buildings are overlapped with different of the same height, 
+				//bottom point will be counted in Checker class, and the top point is always checked by Intersection, so no need to divide the cases
+			return -1; // parallel			
+		}
 		return (other.getConstant()-this.getConstant())/(this.getGradient()-other.getGradient());
 	}
 	

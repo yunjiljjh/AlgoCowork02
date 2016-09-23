@@ -3,8 +3,6 @@ package AlgorithmAssignment;
 import java.lang.reflect.Array;
 import java.util.Vector;
 
-//intersection with y=0 should be included in Intersection
-
 public class Intersection {
 	
 	public Vector<DoublePoint> v =null;
@@ -14,7 +12,6 @@ public class Intersection {
 		 v = new Vector<DoublePoint>();
 	}
 
-//rim
 	public Intersection(lineSegment[] segments){
 		 v = new Vector<DoublePoint>();
 		 //filling v
@@ -34,14 +31,18 @@ public class Intersection {
 				 }
 				 //here segments[j] have possibility to cross..	
 				 //find intersection
-				 double intersectingX = segments[i].getIntersectingX(segments[j]);
-				 double intersectingY =  segments[i].yCoordinate(intersectingX);
-				 add(intersectingX, intersectingY);
-//start here rim
+				 double intersectingX = currentLine.getIntersectingX(segments[j]);
+				 if(intersectingX >=0)
+				 {
+					 double intersectingY = currentLine.yCoordinate(intersectingX);
+					 if(intersectingY >= 0)
+					 {
+						 add(intersectingX, intersectingY);
+					 }
+				 }
 			 }
 		 }
-	}
-	
+	}	
 	
 	
 	public void add(double x, double y){
