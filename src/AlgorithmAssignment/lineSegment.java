@@ -42,12 +42,12 @@ public class lineSegment implements Comparable<lineSegment> {
 		}
 		return ((y1-y2)/(x1-x2))*(X-x1) + y1; // line equation
 	}
-	
-<<<<<<< HEAD
+
+/*	//needed or not?
 	public double getStartPoint(){
 		return x1;
 	}
-	
+*/	
 	@Override
 	public int compareTo(lineSegment other){
 		if (this.x1 < other.x1){
@@ -59,7 +59,7 @@ public class lineSegment implements Comparable<lineSegment> {
 		}
 	}
 
-=======
+/*
 	public boolean CheckRange(double x){
 		if(x1 <= x2) {
 			if (x>=x1 && x<=x2) {return true;}
@@ -70,6 +70,5 @@ public class lineSegment implements Comparable<lineSegment> {
 			else {return false;}
 		}
 	}
-	
->>>>>>> origin/master
+*/	
 }
