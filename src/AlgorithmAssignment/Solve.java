@@ -19,14 +19,14 @@ public class Solve {
 			segments = segsOfTestCases[i];
 			
 			Arrays.sort(segments); //need to check if this works
-//			Sorting sort = new Sorting(segments);
-//			lineSegment sorted = sort.segments;
-			//intersection with y=0 should be included in Intersection
 			Intersection I = new Intersection(segments);
 //			Vector<DoublePoint> v = I.vReturn();
-			Checker chk = Checker(I.vRet(), pointsOnAxis);
+			//check if any line segment exists above the points of intersection and bottom
+			Checker chk = Checker(I.vRet(), pointsOnAxis); //
+			Arrays.sort(chk.points); //result should be sorted
+			//or Collections.sort(chk.points) for vector
 			
-			result = result + chk.v.toString;
+			result = result + chk.points.toString;
 			
 		} // test case loop ends
 		result = result + "\n";
