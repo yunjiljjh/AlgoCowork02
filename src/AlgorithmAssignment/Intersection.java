@@ -32,8 +32,11 @@ public class Intersection {
 				 {
 					 break;
 				 }
-				 //here segments[j] have possibility to cross..				 
+				 //here segments[j] have possibility to cross..	
 				 //find intersection
+				 double intersectingX = segments[i].getIntersectingX(segments[j]);
+				 double intersectingY =  segments[i].yCoordinate(intersectingX);
+				 add(intersectingX, intersectingY);
 //start here rim
 			 }
 		 }

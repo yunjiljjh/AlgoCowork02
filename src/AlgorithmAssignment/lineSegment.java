@@ -43,6 +43,17 @@ public class lineSegment implements Comparable<lineSegment> {
 		return ((y1-y2)/(x1-x2))*(X-x1) + y1; // line equation
 	}
 
+	public double getGradient(){
+		return (y1-y2)/(x1-x2);
+	}
+	public double getConstant(){
+		return (y1-y2)/(x1-x2)*(-x1) + y1;
+	}
+	
+	public double getIntersectingX (lineSegment other){
+		return (other.getConstant()-this.getConstant())/(this.getGradient()-other.getGradient());
+	}
+	
 /*	//needed or not?
 	public double getStartPoint(){
 		return x1;
