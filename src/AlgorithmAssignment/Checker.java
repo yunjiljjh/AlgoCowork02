@@ -15,7 +15,6 @@ import java.util.Vector;
  * 			if lineSegment.x2 > point.x : skip the line
  * make point array or vector that includes all points, but not sorted - sorting will took place in Solve class
  */
-//pointsOnAxis[2*(building#)] is (segsOfTestCases[testcase#][2*(building#)].x1, 0) and [2*k+1] is (segsOfTestCases[testcase#][2*(building#)+1].x2, 0)					
 
 public class Checker {
 	
@@ -24,7 +23,8 @@ public class Checker {
 		
 	}
 
-	Checker(Vector<DoublePoint> v){
+	Checker(Vector<DoublePoint> allPoints){
+		
 		
 	}
 }
