@@ -3,6 +3,7 @@ package AlgorithmAssignment;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 public class InputReader {
 	private FileReader fr;
@@ -12,6 +13,7 @@ public class InputReader {
 	public int numOfBuildings;
 	
 	private lineSegment segments[]; //segments of a test case
+
 	public lineSegment segsOfTestCases[][]; // stores segments of i'th test case in index i
 	public DoublePoint pointsOnAxis[]; //stores points on y=0
 	
@@ -80,6 +82,17 @@ public class InputReader {
 
 			System.out.println("test case loop ends");
 
+//for InputReader test, print segsOfTestCases			
+			for(int i = 0; i < numOfTestcase; i++){
+				System.out.printf("segsOfTestCases[%d]\n", i);
+				int z = Array.getLength(segsOfTestCases[i]);
+				for(int k=0; k < z/2; k++){
+				System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f) ", 2*k, segsOfTestCases[i][2*k].x1, segsOfTestCases[i][2*k].y1, segsOfTestCases[i][2*k].x2,segsOfTestCases[i][2*k].y2);
+				System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f)\n", 2*k+1, segsOfTestCases[i][2*k+1].x1, segsOfTestCases[i][2*k+1].y1, segsOfTestCases[i][2*k+1].x2,segsOfTestCases[i][2*k+1].y2);
+				}
+				System.out.println("a testcase ends");
+			}
+			
 			}catch(IOException e){
 			e.printStackTrace();
 		}finally{
