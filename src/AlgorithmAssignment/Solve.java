@@ -22,12 +22,15 @@ public class Solve {
 			Intersection I = new Intersection(segments);
 //			Vector<DoublePoint> v = I.vReturn();
 			//check if any line segment exists above the points of intersection and bottom
+			//pointsOnAxis[2*(building#)] is (segsOfTestCases[testcase#][2*(building#)].x1, 0) and [2*k+1] is (segsOfTestCases[testcase#][2*(building#)+1].x2, 0)					
+
+/*for test			
 			Checker chk = Checker(I.vRet(), pointsOnAxis); //
 			Arrays.sort(chk.points); //result should be sorted
 			//or Collections.sort(chk.points) for vector
 			
 			result = result + chk.points.toString;
-			
+*/			
 		} // test case loop ends
 		result = result + "\n";
 	}
