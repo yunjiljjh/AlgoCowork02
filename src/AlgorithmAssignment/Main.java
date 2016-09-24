@@ -8,7 +8,7 @@ public class Main {
 		System.out.println("InputReader ended");
 		//C:\Users\p34g\Documents\GitHub\AlgoCowork02\src\AlgorithmAssignment
 //for inputreader test		
-		Solve slv = new Solve(reader.numOfTestcase, reader.segsOfTestCases);
+		Solve slv = new Solve(reader.numOfTestcase, reader.segsOfTestCases); //
 		
 		//which include loops of
 		//		Intersection();

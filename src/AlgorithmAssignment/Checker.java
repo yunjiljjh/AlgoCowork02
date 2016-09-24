@@ -1,5 +1,7 @@
 package AlgorithmAssignment;
 
+import java.util.Vector;
+
 /*********
  *  from the input file, store intersecting points in the 'Intersection' class
  *  check if each point is the point for skyline
@@ -16,5 +18,13 @@ package AlgorithmAssignment;
 //pointsOnAxis[2*(building#)] is (segsOfTestCases[testcase#][2*(building#)].x1, 0) and [2*k+1] is (segsOfTestCases[testcase#][2*(building#)+1].x2, 0)					
 
 public class Checker {
+	
+	
+	Checker(){
+		
+	}
 
+	Checker(Vector<DoublePoint> v){
+		
+	}
 }

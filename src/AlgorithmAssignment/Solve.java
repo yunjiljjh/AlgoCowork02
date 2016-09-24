@@ -19,24 +19,27 @@ public class Solve {
 		for (int i=0; i < numOfTestCase; i++){
 			segments = segsOfTestCases[i];
 			
-			Arrays.sort(segments); //need to check if this works
-			//for sort test, print segsOfTestCases	
+			Arrays.sort(segments); //need to check if this works <- checked
+//for sort test, print segsOfTestCases	
 			System.out.println("sort test");
-				System.out.printf("segsOfTestCases[%d]\n", i);
-				int z = Array.getLength(segsOfTestCases[i]);
-				for(int k=0; k < z/2; k++){
-				System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f) ", 2*k, segsOfTestCases[i][2*k].x1, segsOfTestCases[i][2*k].y1, segsOfTestCases[i][2*k].x2,segsOfTestCases[i][2*k].y2);
-				System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f)\n", 2*k+1, segsOfTestCases[i][2*k+1].x1, segsOfTestCases[i][2*k+1].y1, segsOfTestCases[i][2*k+1].x2,segsOfTestCases[i][2*k+1].y2);
-				}
-				System.out.println("a testcase ends");
+			System.out.printf("segsOfTestCases[%d]\n", i);
+			int z = Array.getLength(segsOfTestCases[i]);
+			for(int k=0; k < z/2; k++){
+			System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f)\n", 2*k, segsOfTestCases[i][2*k].x1, segsOfTestCases[i][2*k].y1, segsOfTestCases[i][2*k].x2,segsOfTestCases[i][2*k].y2);
+			System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f)\n", 2*k+1, segsOfTestCases[i][2*k+1].x1, segsOfTestCases[i][2*k+1].y1, segsOfTestCases[i][2*k+1].x2,segsOfTestCases[i][2*k+1].y2);
+			}
+			System.out.println("a testcase ends");
 
 			Intersection I = new Intersection(segments);
-//			Vector<DoublePoint> v = I.vReturn();
+			Vector<DoublePoint> v = I.v;
 			//check if any line segment exists above the points of intersection and bottom
 			//pointsOnAxis[2*(building#)] is (segsOfTestCases[testcase#][2*(building#)].x1, 0) and [2*k+1] is (segsOfTestCases[testcase#][2*(building#)+1].x2, 0)					
 
+			//add things to v
+//here			
+			
+			Checker chk = new Checker(v); //
 /*for test			
-			Checker chk = Checker(I.vRet()); //
 			Arrays.sort(chk.points); //result should be sorted
 			//or Collections.sort(chk.points) for vector
 			
