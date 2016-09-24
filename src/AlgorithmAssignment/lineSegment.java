@@ -17,6 +17,9 @@ public class lineSegment implements Comparable<lineSegment> {
 	public double x2;
 	public double y1;
 	public double y2;
+	public double gradient;
+	public double constant;
+
 	
 	
 /*	lineSegment()
@@ -33,6 +36,8 @@ public class lineSegment implements Comparable<lineSegment> {
 	{
 		this.x1 = x1; this.y1 = y1; 
 		this.x2 = x2; this.y2 = y2;
+		gradient = (y1-y2)/(x1-x2);
+		constant =  (y1-y2)/(x1-x2)*(-x1) + y1;
 	}
 	
 	public double yCoordinate(double X) // return y value of given X of this line
@@ -44,10 +49,10 @@ public class lineSegment implements Comparable<lineSegment> {
 	}
 
 	public double getGradient(){
-		return (y1-y2)/(x1-x2);
+		return gradient;
 	}
 	public double getConstant(){
-		return (y1-y2)/(x1-x2)*(-x1) + y1;
+		return constant;
 	}
 	
 	public double getIntersectingX (lineSegment other){
