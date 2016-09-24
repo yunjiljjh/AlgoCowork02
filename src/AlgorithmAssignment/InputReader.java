@@ -31,29 +31,18 @@ public class InputReader {
 			
 			// reads the first line
 			s = br.readLine();
-
-			System.out.println("first line is read");
-
 			String[] a = s.split(" ");
 			numOfTestcase = Integer.parseInt(a[0]);
-
-			System.out.printf("numOfTestcase is: %d\n", numOfTestcase);
 			segsOfTestCases = new lineSegment[numOfTestcase][];
 					
 			//one test case per a loop
 			for(int i =0 ; i <numOfTestcase ; i++){
-				
-				System.out.printf("in for loop: test case #%d\n", i);
-
 				numOfBuildings  = Integer.parseInt(br.readLine());
 			//rim
 				segments = new lineSegment[2 * numOfBuildings];				
 				
 				//one building / loop
 				for(int k = 0 ; k <numOfBuildings ; k++){
-					
-					System.out.printf("in 2nd for loop: building #%d\n", k);
-					
 					String ss = null;
 					s = br.readLine();
 					String[] aa = s.split(" ");
@@ -68,17 +57,11 @@ public class InputReader {
 					segments[2*k+1] = new lineSegment(daa[2], daa[3], daa[4], daa[5]); //right slope
 
 				} //building loop ends - segments[2*k] is filled
-
-				System.out.println("building loop ends");
-
 				segsOfTestCases[i] = segments;
-				
 			} // test case loop ends
 
-			System.out.println("test case loop ends");
-
 //for InputReader test, print segsOfTestCases			
-			for(int i = 0; i < numOfTestcase; i++){
+/*			for(int i = 0; i < numOfTestcase; i++){
 				System.out.printf("segsOfTestCases[%d]\n", i);
 				int z = Array.getLength(segsOfTestCases[i]);
 				for(int k=0; k < z/2; k++){
@@ -87,7 +70,7 @@ public class InputReader {
 				}
 				System.out.println("a testcase ends");
 			}
-			
+*/			
 			}catch(IOException e){
 			e.printStackTrace();
 		}finally{

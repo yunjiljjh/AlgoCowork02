@@ -28,14 +28,14 @@ public class Solve {
 			int z = Array.getLength(segsOfTestCases[i]);
 
 //for sort test, print segsOfTestCases	
-			System.out.println("sort test");
+/*			System.out.println("sort test");
 			System.out.printf("segsOfTestCases[%d]\n", i);
 			for(int k=0; k < z/2; k++){
 				System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f)\n", 2*k, segsOfTestCases[i][2*k].x1, segsOfTestCases[i][2*k].y1, segsOfTestCases[i][2*k].x2,segsOfTestCases[i][2*k].y2);
 				System.out.printf("segments[%d]: (%.2f, %.2f), (%.2f, %.2f)\n", 2*k+1, segsOfTestCases[i][2*k+1].x1, segsOfTestCases[i][2*k+1].y1, segsOfTestCases[i][2*k+1].x2,segsOfTestCases[i][2*k+1].y2);
 			}
 			System.out.println("a testcase ends");
-
+*/
 			Intersection I = new Intersection(segments);
 			Queue<DoublePoint> allPoints = I.q;
 
@@ -64,11 +64,22 @@ public class Solve {
 			Arrays.sort(chk.result); //result should be sorted
 //check if duplicated points			
 			//or Collections.sort(chk.points) for vector
-// need to convert doublepoint to numbers			
+// need to convert doublepoint to numbers
+// should round off take place in outputwriter or somewhere else?
+			int size = chk.result.length;
+			for (int j = 0; j < size; j++){
+				String x = String.format("%1$,.2f", chk.result[j].getX());
+				String y = String.format("%1$,.2f", chk.result[j].getY());
+//				chk.result[j].getX()
+//				chk.result[j].getY()
+				result = result + x + " " + y + " ";
+			}
+			result = result + "\n";
 //			result = result + chk.result.toString();
 			
-		} // test case loop ends
-		result = result + "\n";
+		} // test case loop ends		
+
+		System.out.print(result);
 	}
 /*
  * Object[] anArray =new Object[2];
