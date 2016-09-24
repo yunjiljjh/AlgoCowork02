@@ -1,6 +1,6 @@
 package AlgorithmAssignment;
 
-public class DoublePoint {
+public class DoublePoint implements Comparable<DoublePoint> {
 	private double x;
 	private double y;
 	
@@ -17,6 +17,17 @@ public class DoublePoint {
 	}
 	public double getY(){
 		return y;
+	}
+
+	@Override
+	public int compareTo(DoublePoint other){
+		if (this.x < other.x){
+			return -1;
+		}else if (this.x > other.x){
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 	
 }

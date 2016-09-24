@@ -2,7 +2,11 @@ package AlgorithmAssignment;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Vector;
+import java.util.Collections;
+import java.util.List;
+//import java.util.Collections;
+import java.util.Queue;
+//import java.util.Vector;
 
 public class Solve {
 //	Solve(InputReader.numOfTestCase, InputReader.segsOfTestCases);
@@ -33,28 +37,36 @@ public class Solve {
 			System.out.println("a testcase ends");
 
 			Intersection I = new Intersection(segments);
-			Vector<DoublePoint> v = I.v;
+			Queue<DoublePoint> allPoints = I.q;
+
+//			Vector<DoublePoint> v = I.v;
 			//check if any line segment exists above the points of intersection and bottom
 			//pointsOnAxis[2*(building#)] is (segsOfTestCases[testcase#][2*(building#)].x1, 0) and [2*k+1] is (segsOfTestCases[testcase#][2*(building#)+1].x2, 0)					
 
 			//add pointsOnAxis to v
 			for(int k=0; k < z/2; k++){
-				v.add(new DoublePoint(segsOfTestCases[i][2*k].x1, 0));
-				v.add(new DoublePoint(segsOfTestCases[i][2*k+1].x2, 0));
+				allPoints.add(new DoublePoint(segsOfTestCases[i][2*k].x1, 0));
+				allPoints.add(new DoublePoint(segsOfTestCases[i][2*k+1].x2, 0));
+
+//				v.add(new DoublePoint(segsOfTestCases[i][2*k].x1, 0));
+//				v.add(new DoublePoint(segsOfTestCases[i][2*k+1].x2, 0));
 /*				DoublePoint x1 = new DoublePoint(segsOfTestCases[i][2*k].x1, 0);
 				DoublePoint x2 = new DoublePoint(segsOfTestCases[i][2*k+1].x2, 0);
 				v.add(x1);
 				v.add(x2); 
 */
 			}
-
-			Checker chk = new Checker(v); //
-/*for test			
-			Arrays.sort(chk.points); //result should be sorted
-			//or Collections.sort(chk.points) for vector
+//			Collections.sort(v);
+//			Checker chk = new Checker(v); //
+//			Collections.sort((List<DoublePoint>) allPoints);
 			
-			result = result + chk.points.toString;
-*/			
+			Checker chk = new Checker(allPoints, segments); // check allPoints with segments 
+			Arrays.sort(chk.result); //result should be sorted
+//check if duplicated points			
+			//or Collections.sort(chk.points) for vector
+// need to convert doublepoint to numbers			
+//			result = result + chk.result.toString();
+			
 		} // test case loop ends
 		result = result + "\n";
 	}

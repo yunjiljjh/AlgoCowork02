@@ -42,9 +42,15 @@ public class lineSegment implements Comparable<lineSegment> {
 	
 	public double yCoordinate(double X) // return y value of given X of this line
 	{
-		if (x1 >= X || x2 <= X){ //not in domain //(always x1<=x2)
+		if (X <= x1){
+			return -1; // left of the domain - for search in Checker
+		}else if(X >= x2){
+			return -2; // right of the domain
+		}
+/*		if (x1 >= X || x2 <= X){ //not in domain //(always x1<=x2)
 			return -1; 
 		}
+*/
 		return ((y1-y2)/(x1-x2))*(X-x1) + y1; // line equation
 	}
 

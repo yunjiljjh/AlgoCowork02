@@ -1,19 +1,24 @@
 package AlgorithmAssignment;
 
 import java.lang.reflect.Array;
-import java.util.Vector;
+import java.util.LinkedList;
+import java.util.Queue;
+//import java.util.Vector;
 
 public class Intersection {
 	
-	public Vector<DoublePoint> v =null;
+//	public Vector<DoublePoint> v =null;
 	public lineSegment segments[];
 	
-	public Intersection(){
-		 v = new Vector<DoublePoint>();
+	public Queue<DoublePoint> q = null;
+	
+	public Intersection(){			
+//		 v = new Vector<DoublePoint>();
 	}
 
 	public Intersection(lineSegment[] segments){
-		 v = new Vector<DoublePoint>();
+//		 v = new Vector<DoublePoint>();
+		 q = new LinkedList<DoublePoint>();
 		 //filling v
 		 lineSegment currentLine;
 
@@ -35,9 +40,10 @@ public class Intersection {
 				 if(intersectingX >=0)
 				 {
 					 double intersectingY = currentLine.yCoordinate(intersectingX);
-					 if(intersectingY >= 0)
+					 if(intersectingY > 0) //delete equals to prevent bottom points duplication
 					 {
-						 add(intersectingX, intersectingY);
+						 q.add(new DoublePoint(intersectingX, intersectingY));
+//						 add(intersectingX, intersectingY);
 					 }
 				 }
 			 }
@@ -45,8 +51,11 @@ public class Intersection {
 	}	
 	
 	
-	public void add(double x, double y){
+/*	public void add(double x, double y){
+		System.out.printf("in add method\nintersectingX is: %.2f, intersectingY is: %.2f\n", x, y);
+
 		DoublePoint p = new DoublePoint(x,y);
+		System.out.println("here");
 		v.add(p);
 	}
 	public double[] getOne(int i){ //i번째 point를 [0]=x, [1]=y로  리턴
@@ -63,5 +72,5 @@ public class Intersection {
 	public void clear(){ //clear out the vector (erase all)
 		v.clear();
 	}
-	
+*/	
 }
