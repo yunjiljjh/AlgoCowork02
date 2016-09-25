@@ -62,13 +62,6 @@ public class lineSegment implements Comparable<lineSegment> {
 	}
 	
 	public double getIntersectingX (lineSegment other){
-		if(this.getGradient() == other.getGradient())
-		{//parallel or overlapping, and divide by zero handling
-			//if parallel, no intersection
-			//if one slope of the two buildings are overlapped with different of the same height, 
-				//bottom point will be counted in Checker class, and the top point is always checked by Intersection, so no need to divide the cases
-			return -1; // parallel			
-		}
 		return (other.getConstant()-this.getConstant())/(this.getGradient()-other.getGradient());
 	}
 	
@@ -88,16 +81,33 @@ public class lineSegment implements Comparable<lineSegment> {
 		}
 	}
 
-/*
-	public boolean CheckRange(double x){
+
+	public boolean CheckRange(double x, double y){
+		int flag = 0;
 		if(x1 <= x2) {
-			if (x>=x1 && x<=x2) {return true;}
+			if (x>=x1 && x<=x2) {flag++;}
 			else {return false;}
 		}
 		else{
-			if (x>=x2 && x<=x1) {return true;}
+			if (x>=x2 && x<=x1) {flag++;}
 			else {return false;}
 		}
+		if(y1<y2){
+			if(y>=y1 && y<=y2) {flag++;}
+			else {return false;}
+		}
+		else{
+			if(y>=y2 && y<=y1) {flag++;}
+			else {return false;}
+		}
+		if(flag==2){return true;}
+		else {return false;}
 	}
-*/	
+	
+	public boolean checkOverlap(double x){
+		if((x1<=x2)&&(x1<=x)&&(x2>=x)) return true;
+		else if((x2<=x1)&&(x2<=x)&&(x1>=x)) return true;
+		else return false;
+	}
+	
 }
