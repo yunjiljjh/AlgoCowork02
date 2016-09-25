@@ -56,7 +56,7 @@ public class Solve2 {
 					//first check if this line overlaps canditX 
 					if(comparableLine.checkOverlap(canditX)==true) { // if it's dangerous to be candidate
 						System.out.println("위험한 범위가 있다!");
-						if (comparableLine.yCoordinate(canditX) >=canditY +0.1){ // and if there is one that's above the candidate
+						if (comparableLine.yCoordinate(canditX) >canditY ){ // and if there is one that's above the candidate
 							System.out.println("더 큰 수가 있다!");
 							flag++; //failed to be a skyPoint
 					}
