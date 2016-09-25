@@ -1,6 +1,8 @@
 package AlgorithmAssignment;
 
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Vector;
 
 public class Solve2 {
@@ -64,6 +66,9 @@ public class Solve2 {
 				if(flag == 0)skyPoint.add(new DoublePoint(canditX,canditY));
 
 			} //finished getting skyline
+			
+			//sorting skyline points
+			Collections.sort(skyPoint); //result should be sorted
 			
 			System.out.println("final " +  skyPoint.size() + "skyline point is...");
 			for(int yh = 0 ; yh < skyPoint.size(); yh++){
