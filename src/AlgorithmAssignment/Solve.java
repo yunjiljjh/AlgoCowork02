@@ -36,6 +36,8 @@ public class Solve {
 			}
 			System.out.println("a testcase ends");
 */
+			
+			
 			Intersection I = new Intersection(segments);
 			Queue<DoublePoint> allPoints = I.q;
 
@@ -44,10 +46,12 @@ public class Solve {
 			//pointsOnAxis[2*(building#)] is (segsOfTestCases[testcase#][2*(building#)].x1, 0) and [2*k+1] is (segsOfTestCases[testcase#][2*(building#)+1].x2, 0)					
 
 			//add pointsOnAxis to v
-			for(int k=0; k < z/2; k++){
-				allPoints.add(new DoublePoint(segsOfTestCases[i][2*k].x1, 0));
-				allPoints.add(new DoublePoint(segsOfTestCases[i][2*k+1].x2, 0));
+//Rim trying			
+//			for(int k=0; k < z/2; k++){
+//				allPoints.add(new DoublePoint(segsOfTestCases[i][2*k].x1, 0));
+//				allPoints.add(new DoublePoint(segsOfTestCases[i][2*k+1].x2, 0));
 
+			
 //				v.add(new DoublePoint(segsOfTestCases[i][2*k].x1, 0));
 //				v.add(new DoublePoint(segsOfTestCases[i][2*k+1].x2, 0));
 /*				DoublePoint x1 = new DoublePoint(segsOfTestCases[i][2*k].x1, 0);
@@ -55,12 +59,15 @@ public class Solve {
 				v.add(x1);
 				v.add(x2); 
 */
-			}
+//			}
+
+
 //			Collections.sort(v);
 //			Checker chk = new Checker(v); //
 //			Collections.sort((List<DoublePoint>) allPoints);
 			
 			Checker chk = new Checker(allPoints, segments); // check allPoints with segments 
+		
 			Arrays.sort(chk.result); //result should be sorted
 //check if duplicated points			
 			//or Collections.sort(chk.points) for vector

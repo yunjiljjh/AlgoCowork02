@@ -40,7 +40,7 @@ public class Intersection {
 				 if(intersectingX >=0)
 				 {
 					 double intersectingY = currentLine.yCoordinate(intersectingX);
-					 if(intersectingY > 0) //delete equals to prevent bottom points duplication
+					 if(intersectingY >= 0) //delete equals to prevent bottom points duplication //Rim trying
 					 {
 						 q.add(new DoublePoint(intersectingX, intersectingY));
 //						 add(intersectingX, intersectingY);
