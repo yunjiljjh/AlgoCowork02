@@ -42,9 +42,9 @@ public class lineSegment implements Comparable<lineSegment> {
 	
 	public double yCoordinate(double X) // return y value of given X of this line
 	{
-		if (X <= x1){
+		if (X < x1){
 			return -1; // left of the domain - for search in Checker
-		}else if(X >= x2){
+		}else if(X >x2){
 			return -2; // right of the domain
 		}
 /*		if (x1 >= X || x2 <= X){ //not in domain //(always x1<=x2)
@@ -65,6 +65,7 @@ public class lineSegment implements Comparable<lineSegment> {
 		return (other.getConstant()-this.getConstant())/(this.getGradient()-other.getGradient());
 	}
 	
+	
 /*	//needed or not?
 	public double getStartPoint(){
 		return x1;
@@ -84,7 +85,7 @@ public class lineSegment implements Comparable<lineSegment> {
 
 	public boolean CheckRange(double x, double y){
 		int flag = 0;
-		if(x1 <= x2) {
+		if(x1 < x2) {
 			if (x>=x1 && x<=x2) {flag++;}
 			else {return false;}
 		}

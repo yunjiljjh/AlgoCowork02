@@ -20,7 +20,7 @@ public class InputReader {
 	public InputReader(String path){
 		read(path);
 	}
-	
+
 	private void read(String path){
 		try{
 			fr=new FileReader(path);

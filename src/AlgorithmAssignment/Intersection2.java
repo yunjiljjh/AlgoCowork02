@@ -23,7 +23,6 @@ public void sortPoints(){ //sortPointsInAscendingOther
 	
 }
 
-	
 public void add(double x, double y){
 		DoublePoint p = new DoublePoint(x,y);
 		v.add(p);
