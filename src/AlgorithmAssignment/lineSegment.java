@@ -1,27 +1,24 @@
-//**Change name to LineSegment at some point
+/* (CSI 3108-01) Algorithm Analysis class HW2 Skyline
+ * Lee, Yun Ji	(2013198070)  	 
+ * Nam, Hyo Rim (2013147531)
+ * 2016 Fall */
+/* LineSegment stores starting point coordinate (x1, y1) and end point coordinate (x2, y2) of an edge of a building. 
+ * yCoordinate(double X) computes y coordinate of the segment for given x
+ * CheckRange(double X, double Y) and CheckOverlap(double X) checks the domain and the range. */
 package AlgorithmAssignment;
 
 import java.util.Arrays;
 
-public class lineSegment implements Comparable<lineSegment> {
-	
-/*	private DoublePoint L;
-	private DoublePoint R;
-*/
-/*	private double x1;
+public class LineSegment{
+	//x1 is always smaller than x2	
+	private double x1;
 	private double x2;
 	private double y1;
 	private double y2;
-*/ //for JUnit test run
-//x1 is always smaller than x2
-	public double x1;
-	public double x2;
-	public double y1;
-	public double y2;
 	public double gradient;
 	public double constant;
 
-	lineSegment(double x1, double y1, double x2, double y2)
+	LineSegment(double x1, double y1, double x2, double y2)
 	{
 		this.x1 = x1; this.y1 = y1; 
 		this.x2 = x2; this.y2 = y2;
@@ -29,61 +26,43 @@ public class lineSegment implements Comparable<lineSegment> {
 		constant =  (y1-y2)/(x1-x2)*(-x1) + y1;
 	}
 	
-	public double yCoordinate(double X) // return y value of given X of this line
+	 // return y value of given X of this line segment
+	public double yCoordinate(double X) 
 	{
-		if (X < x1){
-			return -1; // left of the domain - for search in Checker
-		}else if(X > x2){
-			return -2; // right of the domain
-		}
 		if (x1 > X || x2 <= X){ //not in domain //(always x1<=x2)
 			return -1; 
 		}
-
-		return ((y1-y2)/(x1-x2))*(X-x1) + y1; // line equation
+		return ((y1-y2)/(x1-x2))*(X-x1) + y1; // from line equation
 	}
 
-	public double getGradient(){
-		return gradient;
-	}
-	public double getConstant(){
-		return constant;
-	}
-	
-	public double getIntersectingX (lineSegment other){
-		if (this.getGradient() == other.getGradient()){return -1;} // parallel or the same line
-		return (other.getConstant()-this.getConstant())/(this.getGradient()-other.getGradient());
-	}
-	
-	
-/*	//needed or not?
-	public double getStartPoint(){
+	public double getX1(){
 		return x1;
 	}
-*/	
-	@Override
-	public int compareTo(lineSegment other){
-		if (this.x1 < other.x1){
-			return -1;
-		}else if (this.x1 > other.x1){
-			return 1;
-		}else {
-			return 0;
-		}
+	public double getX2(){
+		return x2;
+	}
+	public double getY1(){
+		return y1;
+	}
+	public double getY2(){
+		return y2;
+	}
+	
+	//getting the X coordinate of intersection
+	public double getIntersectingX (LineSegment other){
+		if (this.gradient == other.gradient){return -1;} // parallel or the same line handling
+		return (other.constant-this.constant)/(this.gradient-other.gradient);
 	}
 
-
+	//for intersection, check if given point (x, y) is in (x1, x2], (y1, y2]
+		//range (,] to not include top points repeatedly
 	public boolean CheckRange(double x, double y){
 		int flag = 0;
 		if(x1 < x2) {
 			if (x>x1 && x<=x2) {flag++;}
 			else {return false;}
 		}
-/*		else{
-			if (x>=x2 && x<=x1) {flag++;}
-			else {return false;}
-		}*/ //does not happen
-		if(y1<y2){
+		if(y1 < y2){
 			if(y>=y1 && y<=y2) {flag++;}
 			else {return false;}
 		}
@@ -95,11 +74,10 @@ public class lineSegment implements Comparable<lineSegment> {
 		else {return false;}
 	}
 
-//why needed?	
+	//for skyline filter, check if given x is in [x1, x2] 
+		//to know if this LineSegment has possibility to exist above some candidate skyline point
 	public boolean checkOverlap(double x){
-		if((x1<=x2)&&(x1<=x)&&(x2>=x)) return true;
-//		else if((x2<=x1)&&(x2<=x)&&(x1>=x)) return true; //this does not happen
+		if((x1<=x)&&(x2>=x)) return true;
 		else return false;
 	}
-	
 }
