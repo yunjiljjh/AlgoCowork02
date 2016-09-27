@@ -50,7 +50,7 @@ public class Checker {
 				//search
 				//first x>=0 is the new point to search
 				y = segments[j].yCoordinate(examine.getX());
-				if (y >= 0)
+				if (y < examine.getY())
 				{
 					skyLinePoints.add(examine);
 				}

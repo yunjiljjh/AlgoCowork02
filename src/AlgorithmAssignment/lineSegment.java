@@ -1,3 +1,4 @@
+//**Change name to LineSegment at some point
 package AlgorithmAssignment;
 
 import java.util.Arrays;
@@ -20,18 +21,6 @@ public class lineSegment implements Comparable<lineSegment> {
 	public double gradient;
 	public double constant;
 
-	
-	
-/*	lineSegment()
-	{
-		x1 = -1; x2 = -1; y1 = -1; y2 = -1;
-	}
-/*	
-	lineSegment(DoublePoint L, DoublePoint R)
-	{
-		this.L = L; this.R = R;		
-	}
-*/	
 	lineSegment(double x1, double y1, double x2, double y2)
 	{
 		this.x1 = x1; this.y1 = y1; 
@@ -44,13 +33,13 @@ public class lineSegment implements Comparable<lineSegment> {
 	{
 		if (X < x1){
 			return -1; // left of the domain - for search in Checker
-		}else if(X >x2){
+		}else if(X > x2){
 			return -2; // right of the domain
 		}
-/*		if (x1 >= X || x2 <= X){ //not in domain //(always x1<=x2)
+		if (x1 > X || x2 <= X){ //not in domain //(always x1<=x2)
 			return -1; 
 		}
-*/
+
 		return ((y1-y2)/(x1-x2))*(X-x1) + y1; // line equation
 	}
 
@@ -62,6 +51,7 @@ public class lineSegment implements Comparable<lineSegment> {
 	}
 	
 	public double getIntersectingX (lineSegment other){
+		if (this.getGradient() == other.getGradient()){return -1;} // parallel or the same line
 		return (other.getConstant()-this.getConstant())/(this.getGradient()-other.getGradient());
 	}
 	
@@ -86,13 +76,13 @@ public class lineSegment implements Comparable<lineSegment> {
 	public boolean CheckRange(double x, double y){
 		int flag = 0;
 		if(x1 < x2) {
-			if (x>=x1 && x<=x2) {flag++;}
+			if (x>x1 && x<=x2) {flag++;}
 			else {return false;}
 		}
-		else{
+/*		else{
 			if (x>=x2 && x<=x1) {flag++;}
 			else {return false;}
-		}
+		}*/ //does not happen
 		if(y1<y2){
 			if(y>=y1 && y<=y2) {flag++;}
 			else {return false;}
@@ -104,10 +94,11 @@ public class lineSegment implements Comparable<lineSegment> {
 		if(flag==2){return true;}
 		else {return false;}
 	}
-	
+
+//why needed?	
 	public boolean checkOverlap(double x){
 		if((x1<=x2)&&(x1<=x)&&(x2>=x)) return true;
-		else if((x2<=x1)&&(x2<=x)&&(x1>=x)) return true;
+//		else if((x2<=x1)&&(x2<=x)&&(x1>=x)) return true; //this does not happen
 		else return false;
 	}
 	

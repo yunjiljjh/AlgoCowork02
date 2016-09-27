@@ -1,4 +1,4 @@
-package AlgorithmAssignment;
+/*package AlgorithmAssignment;
 
 import java.util.Comparator;
 import java.util.Vector;
@@ -9,3 +9,4 @@ public class LineComparator implements Comparator{
 		   return ((Member)arg0).age > ((Member)arg1).age ?1:0;
 		 }
 		}
+*/

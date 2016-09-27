@@ -1,9 +1,6 @@
 package AlgorithmAssignment;
 
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Vector;
-import java.util.Collections;
 
 //intersection with y=0 should be included in Intersection
 
@@ -11,14 +8,12 @@ public class Intersection2{
 	
 	public Vector<DoublePoint> v =null;
 	public lineSegment segments[];
-	
-//	public Queue<DoublePoint> q = null;
-	
+		
 	public Intersection2(){			
 		 v = new Vector<DoublePoint>();
 	}
 		 
-	
+//not needed?	
 public void sortPoints(){ //sortPointsInAscendingOther
 	
 }
